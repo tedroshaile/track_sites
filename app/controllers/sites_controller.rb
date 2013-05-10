@@ -2,7 +2,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    @sites = Site.all(:order => 'created_at DESC', :limit => 20)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,10 +2,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Url</th>
+    <th>Site</th>
     <th>Comments</th>
-    <th></th>
+    <th>Date Added</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,11 +12,10 @@
 <% @sites.each do |site| %>
   <tr>
     <td><a href="<%= site.url %>"><%= site.name %></a></td>
-    <td><%= site.url %></td>
     <td><%= site.comments %></td>
-    <td><%= link_to 'Show', site %></td>
+    <td><%= site.created_at.to_formatted_s(:long) %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
-    <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
